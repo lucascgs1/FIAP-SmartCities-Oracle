@@ -1,18 +1,16 @@
 ﻿using Pokedevs.Api.Models;
 using Pokedevs.Api.Repository.Context;
-using Microsoft.EntityFrameworkCore;
-using System;
+using Pokedevs.Api.Repository.Interface;
 using System.Collections.Generic;
 using System.Linq;
-using Pokedevs.Api.Repository.Interface;
 
 namespace Pokedevs.Api.Repository
 {
-    public class ProdutoRepository : Repository<Produto>, IProdutoRepository
+    public class VeiculoRepository : Repository<Veiculo>, IVeiculoRepository
     {
         private readonly ApplicationDbContext _context;
 
-        public ProdutoRepository(ApplicationDbContext context) : base(context)
+        public VeiculoRepository(ApplicationDbContext context) : base(context)
         {
             _context = context;
         }
@@ -21,14 +19,10 @@ namespace Pokedevs.Api.Repository
         /// listar Produtos
         /// </summary>
         /// <returns></returns>
-        public IList<Produto> Listar()
+        public IList<Veiculo> Listar()
         {
-            var pokemano = 2;
-
-            var teste = DbSet.AsNoTracking().Include(e => e.Tipo).ToList();
-            return teste;
+            return _context.Veiculo.ToList(); ;
         }
-
 
         //public Produto Consultar(int id)
         //{
@@ -48,7 +42,5 @@ namespace Pokedevs.Api.Repository
 
         //    return tipoProduto.Produtos;
         //}
-
-
     }
 }

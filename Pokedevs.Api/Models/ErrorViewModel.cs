@@ -1,5 +1,3 @@
-using System;
-
 namespace Pokedevs.Api.Models
 {
     public class ErrorViewModel

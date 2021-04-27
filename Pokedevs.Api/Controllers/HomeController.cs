@@ -3,10 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Pokedevs.Api.Service.Interface;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 
 namespace Pokedevs.Api.Controllers
 {
@@ -21,17 +17,16 @@ namespace Pokedevs.Api.Controllers
             _logger = logger;
         }
 
-
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult Get([FromServices] IProdutoServices produtoServices)
+        public ActionResult Get([FromServices] IVeiculoServices veiculoServices)
         {
             try
             {
-                var produtosLst = produtoServices.GetAll();
+                var veiculoLst = veiculoServices.GetAll();
 
-                return Ok(produtosLst);
+                return Ok(veiculoLst);
             }
             catch (Exception ex)
             {

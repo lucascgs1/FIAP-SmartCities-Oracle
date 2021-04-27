@@ -1,11 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Pokedevs.Api.Repository.Context;
+using Pokedevs.Api.Repository.Interface;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using Pokedevs.Api.Repository.Interface;
-using Pokedevs.Api.Repository.Context;
 
 namespace Pokedevs.Api.Repository
 {
@@ -45,7 +44,6 @@ namespace Pokedevs.Api.Repository
         {
             return DbSet.AsQueryable<TEntity>();
         }
-
 
         public virtual void Update(TEntity obj)
         {

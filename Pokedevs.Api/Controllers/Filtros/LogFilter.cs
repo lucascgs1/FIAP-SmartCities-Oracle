@@ -5,7 +5,6 @@ namespace Pokedevs.Api.Controllers.Filtros
 {
     public sealed class LogFilter : ActionFilterAttribute
     {
-
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             base.OnActionExecuting(context);
@@ -16,6 +15,5 @@ namespace Pokedevs.Api.Controllers.Filtros
             System.Diagnostics.Debug.WriteLine("Data e Hora : " + DateTime.Now);
             System.Diagnostics.Debug.WriteLine("==========================================================");
         }
-
     }
 }

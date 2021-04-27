@@ -3,22 +3,19 @@ using Pokedevs.Api.Repository.Interface;
 using Pokedevs.Api.Service.Interface;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Pokedevs.Api.Service
 {
-    public class ProdutoServices : IProdutoServices
+    public class VeiculoServices : IVeiculoServices
     {
-        public IProdutoRepository ProdutoRepository { get; set; }
+        public IVeiculoRepository ProdutoRepository { get; set; }
 
-        public ProdutoServices(IProdutoRepository produtoRepository)
+        public VeiculoServices(IVeiculoRepository produtoRepository)
         {
             ProdutoRepository = produtoRepository;
         }
 
-
-        public IList<Produto> GetAll()
+        public IList<Veiculo> GetAll()
         {
             try
             {
