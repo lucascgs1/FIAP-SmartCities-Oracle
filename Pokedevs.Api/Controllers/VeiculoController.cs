@@ -19,14 +19,21 @@ namespace Pokedevs.Api.Controllers
             _context = context;
         }
 
-        // GET: api/Veiculo
+        /// <summary>
+        /// obtem todos os veiculos
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Veiculo>>> GetVeiculo()
         {
             return await _context.Veiculo.ToListAsync();
         }
 
-        // GET: api/Veiculo/5
+        /// <summary>
+        /// obtem os dados de um veiculo
+        /// </summary>
+        /// <param name="id">codigo do veiculo</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Veiculo>> GetVeiculo(int id)
         {
@@ -40,8 +47,12 @@ namespace Pokedevs.Api.Controllers
             return veiculo;
         }
 
-        // PUT: api/Veiculo/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// atualiza um veiculo
+        /// </summary>
+        /// <param name="id">codigo do veiculo</param>
+        /// <param name="veiculo">dados do veiculo</param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutVeiculo(int id, Veiculo veiculo)
         {
@@ -71,8 +82,11 @@ namespace Pokedevs.Api.Controllers
             return NoContent();
         }
 
-        // POST: api/Veiculo
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Salva um novo veiculo
+        /// </summary>
+        /// <param name="veiculo">dados do veiculo</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Veiculo>> PostVeiculo(Veiculo veiculo)
         {
@@ -82,7 +96,11 @@ namespace Pokedevs.Api.Controllers
             return CreatedAtAction("GetVeiculo", new { id = veiculo.Id }, veiculo);
         }
 
-        // DELETE: api/Veiculo/5
+        /// <summary>
+        /// deleta um veiculo
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteVeiculo(int id)
         {
@@ -98,6 +116,11 @@ namespace Pokedevs.Api.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// verifica se o veiculo ja existe
+        /// </summary>
+        /// <param name="id">codigo do vericulo</param>
+        /// <returns></returns>
         private bool VeiculoExists(int id)
         {
             return _context.Veiculo.Any(e => e.Id == id);

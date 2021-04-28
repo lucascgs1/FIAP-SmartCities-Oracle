@@ -19,14 +19,21 @@ namespace Pokedevs.Api.Controllers
             _context = context;
         }
 
-        // GET: api/Rota
+        /// <summary>
+        /// obtem uma lista de rotas
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Rota>>> GetRota()
         {
             return await _context.Rota.ToListAsync();
         }
 
-        // GET: api/Rota/5
+        /// <summary>
+        /// obtem dados da rota
+        /// </summary>
+        /// <param name="id">codigo da rota</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Rota>> GetRota(int id)
         {
@@ -40,8 +47,12 @@ namespace Pokedevs.Api.Controllers
             return rota;
         }
 
-        // PUT: api/Rota/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// atualiza uma rota
+        /// </summary>
+        /// <param name="id">codigo da rota</param>
+        /// <param name="rota">dados da rota</param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutRota(int id, Rota rota)
         {
@@ -71,8 +82,11 @@ namespace Pokedevs.Api.Controllers
             return NoContent();
         }
 
-        // POST: api/Rota
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Salva uma nova rota
+        /// </summary>
+        /// <param name="rota">dados da rota</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Rota>> PostRota(Rota rota)
         {
@@ -82,7 +96,11 @@ namespace Pokedevs.Api.Controllers
             return CreatedAtAction("GetRota", new { id = rota.Id }, rota);
         }
 
-        // DELETE: api/Rota/5
+        /// <summary>
+        /// deleta uma rota
+        /// </summary>
+        /// <param name="id">codigo da rota</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRota(int id)
         {
@@ -98,6 +116,11 @@ namespace Pokedevs.Api.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// verifica se a rota ja existe
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         private bool RotaExists(int id)
         {
             return _context.Rota.Any(e => e.Id == id);

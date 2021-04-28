@@ -19,14 +19,21 @@ namespace Pokedevs.Api.Controllers
             _context = context;
         }
 
-        // GET: api/Parada
+        /// <summary>
+        /// obtem todas as paradas
+        /// </summary>
+        /// <returns>lista de apradas</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Parada>>> GetParada()
         {
             return await _context.Parada.ToListAsync();
         }
 
-        // GET: api/Parada/5
+        /// <summary>
+        /// obtem os dados de uma parada especifica
+        /// </summary>
+        /// <param name="id">codigo da parada</param>
+        /// <returns>dados da parada</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Parada>> GetParada(int id)
         {
@@ -40,8 +47,12 @@ namespace Pokedevs.Api.Controllers
             return parada;
         }
 
-        // PUT: api/Parada/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// atualiza uma parada
+        /// </summary>
+        /// <param name="id">codigo da parada</param>
+        /// <param name="parada">dados da parada</param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutParada(int id, Parada parada)
         {
@@ -71,8 +82,11 @@ namespace Pokedevs.Api.Controllers
             return NoContent();
         }
 
-        // POST: api/Parada
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Salva uma nova parada
+        /// </summary>
+        /// <param name="parada"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Parada>> PostParada(Parada parada)
         {
@@ -82,7 +96,11 @@ namespace Pokedevs.Api.Controllers
             return CreatedAtAction("GetParada", new { id = parada.Id }, parada);
         }
 
-        // DELETE: api/Parada/5
+        /// <summary>
+        /// deleta uma parada
+        /// </summary>
+        /// <param name="id">codigo da parada</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteParada(int id)
         {
@@ -98,6 +116,11 @@ namespace Pokedevs.Api.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// verifica se a aprada existe
+        /// </summary>
+        /// <param name="id">codigo da parada</param>
+        /// <returns></returns>
         private bool ParadaExists(int id)
         {
             return _context.Parada.Any(e => e.Id == id);

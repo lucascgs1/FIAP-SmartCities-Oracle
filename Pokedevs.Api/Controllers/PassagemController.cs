@@ -19,14 +19,21 @@ namespace Pokedevs.Api.Controllers
             _context = context;
         }
 
-        // GET: api/Passagem
+        /// <summary>
+        /// Obtem as passagens do usuario
+        /// </summary>
+        /// <returns>lista de passagens</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Passagem>>> GetPassagem()
         {
             return await _context.Passagem.ToListAsync();
         }
 
-        // GET: api/Passagem/5
+        /// <summary>
+        /// Obtem uma passagem em especifico
+        /// </summary>
+        /// <param name="id">codigo da passagem</param>
+        /// <returns>dados da passagem</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Passagem>> GetPassagem(int id)
         {
@@ -40,8 +47,12 @@ namespace Pokedevs.Api.Controllers
             return passagem;
         }
 
-        // PUT: api/Passagem/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// salva uma nova passavem
+        /// </summary>
+        /// <param name="id">codigo da passagem</param>
+        /// <param name="passagem">dados da nova passagem</param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPassagem(int id, Passagem passagem)
         {
@@ -71,8 +82,11 @@ namespace Pokedevs.Api.Controllers
             return NoContent();
         }
 
-        // POST: api/Passagem
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// salva ou atualiza uma passagem
+        /// </summary>
+        /// <param name="passagem">dados da passagem</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Passagem>> PostPassagem(Passagem passagem)
         {
@@ -82,7 +96,11 @@ namespace Pokedevs.Api.Controllers
             return CreatedAtAction("GetPassagem", new { id = passagem.Id }, passagem);
         }
 
-        // DELETE: api/Passagem/5
+        /// <summary>
+        /// deleta uma passagem
+        /// </summary>
+        /// <param name="id">codigo da passagem</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePassagem(int id)
         {
@@ -98,6 +116,11 @@ namespace Pokedevs.Api.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// verifica se a passagem existe
+        /// </summary>
+        /// <param name="id">codigo da passagem</param>
+        /// <returns></returns>
         private bool PassagemExists(int id)
         {
             return _context.Passagem.Any(e => e.Id == id);

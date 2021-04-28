@@ -19,14 +19,21 @@ namespace Pokedevs.Api.Controllers
             _context = context;
         }
 
-        // GET: api/Usuario
+        /// <summary>
+        /// obtem todos os usuario
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuario()
         {
             return await _context.Usuario.ToListAsync();
         }
 
-        // GET: api/Usuario/5
+        /// <summary>
+        /// obtem os dados de um usuario
+        /// </summary>
+        /// <param name="id">codigo do usuario</param>
+        /// <returns>dados do usuario</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Usuario>> GetUsuario(int id)
         {
@@ -40,8 +47,12 @@ namespace Pokedevs.Api.Controllers
             return usuario;
         }
 
-        // PUT: api/Usuario/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Atualiza um Usuario
+        /// </summary>
+        /// <param name="id">codigo do usuario</param>
+        /// <param name="usuario">dados do usuario</param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUsuario(int id, Usuario usuario)
         {
@@ -71,8 +82,11 @@ namespace Pokedevs.Api.Controllers
             return NoContent();
         }
 
-        // POST: api/Usuario
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Salva um novo usuario
+        /// </summary>
+        /// <param name="usuario">dados do usuario</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
@@ -82,7 +96,11 @@ namespace Pokedevs.Api.Controllers
             return CreatedAtAction("GetUsuario", new { id = usuario.Id }, usuario);
         }
 
-        // DELETE: api/Usuario/5
+        /// <summary>
+        /// deleta um usuario
+        /// </summary>
+        /// <param name="id">codigo do usuario</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUsuario(int id)
         {
@@ -98,6 +116,11 @@ namespace Pokedevs.Api.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// verifica se o usuario ja existe
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         private bool UsuarioExists(int id)
         {
             return _context.Usuario.Any(e => e.Id == id);
