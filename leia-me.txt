@@ -1,0 +1,6 @@
+Projeto desenvolvido em .net core 5, 
+utilizando o banco de dados oracle fornecido pela faculdade, 
+com documentacao gerada pelo swagger
+
+git: https://github.com/lucascgs1/Pokedevs
+documentacao: https://documenter.getpostman.com/view/13499387/TzK16aQL
