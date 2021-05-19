@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Pokedevs.Api.Models;
-using Pokedevs.Api.Repository.Context;
+using Pokedevs.Data.Context;
+using Pokedevs.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

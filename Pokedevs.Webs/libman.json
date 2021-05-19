@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "svg.js@3.0.16",
+      "destination": "wwwroot/lib/svg.js/"
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "bootstrap@5.0.0",
+      "destination": "wwwroot/lib/bootstrap/"
+    },
+    {
+      "library": "datatable@2.0.1",
+      "destination": "wwwroot/datatable/"
+    }
+  ]
+}

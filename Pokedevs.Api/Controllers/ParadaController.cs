@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Pokedevs.Api.Models;
-using Pokedevs.Api.Repository.Context;
+using Microsoft.Extensions.Logging;
+using Pokedevs.Data.Context;
+using Pokedevs.Models;
+using Pokedevs.Services.Interfaces;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Pokedevs.Api.Controllers
@@ -12,11 +13,12 @@ namespace Pokedevs.Api.Controllers
     [ApiController]
     public class ParadaController : ControllerBase
     {
+        private readonly ILogger<ParadaController> _logger;
         private readonly ApplicationDbContext _context;
 
-        public ParadaController(ApplicationDbContext context)
+        public ParadaController(ILogger<ParadaController> logger)
         {
-            _context = context;
+            _logger = logger;
         }
 
         /// <summary>
@@ -24,9 +26,19 @@ namespace Pokedevs.Api.Controllers
         /// </summary>
         /// <returns>lista de apradas</returns>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Parada>>> GetParada()
+        public async Task<ActionResult<IEnumerable<Parada>>> GetParada([FromServices] IParadaServices paradaServices)
         {
-            return await _context.Parada.ToListAsync();
+            try
+            {
+                var parada = paradaServices.GetAll();
+
+                return Ok(parada);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message, ex);
+                return Problem(ex.Message);
+            }
         }
 
         /// <summary>
@@ -35,16 +47,23 @@ namespace Pokedevs.Api.Controllers
         /// <param name="id">codigo da parada</param>
         /// <returns>dados da parada</returns>
         [HttpGet("{id}")]
-        public async Task<ActionResult<Parada>> GetParada(int id)
+        public async Task<ActionResult<Parada>> GetParada([FromServices] IParadaServices paradaServices, int id)
         {
-            var parada = await _context.Parada.FindAsync(id);
-
-            if (parada == null)
+            try
             {
-                return NotFound();
-            }
+                Parada parada = paradaServices.GetById(id);
 
-            return parada;
+                if (parada == null)
+                {
+                    return NotFound();
+                }
+                return Ok(parada);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message, ex);
+                return Problem(ex.Message);
+            }
         }
 
         /// <summary>
@@ -54,32 +73,19 @@ namespace Pokedevs.Api.Controllers
         /// <param name="parada">dados da parada</param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutParada(int id, Parada parada)
+        public IActionResult PutParada([FromServices] IParadaServices paradaServices, int id, Parada parada)
         {
-            if (id != parada.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(parada).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ParadaExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+                paradaServices.Save(parada, id);
 
-            return NoContent();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message, ex);
+                return Problem(ex.Message);
+            }
         }
 
         /// <summary>
@@ -88,12 +94,19 @@ namespace Pokedevs.Api.Controllers
         /// <param name="parada"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<ActionResult<Parada>> PostParada(Parada parada)
+        public async Task<ActionResult<Parada>> PostParada([FromServices] IParadaServices paradaServices, Parada parada)
         {
-            _context.Parada.Add(parada);
-            await _context.SaveChangesAsync();
+            try
+            {
+                paradaServices.Save(parada);
 
-            return CreatedAtAction("GetParada", new { id = parada.Id }, parada);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message, ex);
+                return Problem(ex.Message);
+            }
         }
 
         /// <summary>
@@ -102,28 +115,19 @@ namespace Pokedevs.Api.Controllers
         /// <param name="id">codigo da parada</param>
         /// <returns></returns>
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteParada(int id)
+        public async Task<IActionResult> DeleteParada([FromServices] IParadaServices paradaServices, int id)
         {
-            var parada = await _context.Parada.FindAsync(id);
-            if (parada == null)
+            try
             {
-                return NotFound();
+                paradaServices.DeleteById(id);
+
+                return Ok();
             }
-
-            _context.Parada.Remove(parada);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        /// <summary>
-        /// verifica se a aprada existe
-        /// </summary>
-        /// <param name="id">codigo da parada</param>
-        /// <returns></returns>
-        private bool ParadaExists(int id)
-        {
-            return _context.Parada.Any(e => e.Id == id);
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message, ex);
+                return Problem(ex.Message);
+            }
         }
     }
 }

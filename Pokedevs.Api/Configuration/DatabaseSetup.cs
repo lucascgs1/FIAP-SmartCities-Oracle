@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Pokedevs.Api.Repository.Context;
+using Pokedevs.Data.Context;
 using System;
 
 namespace Pokedevs.Api.Configuration
