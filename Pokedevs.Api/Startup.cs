@@ -23,6 +23,9 @@ namespace Pokedevs.Api
             // Configurar banco
             services.AddDatabaseSetup(Configuration);
 
+            // ASP.NET Identity Settings & JWT
+            services.AddIdentitySetup(Configuration);
+
             // Permitir cors
             services.AddCors();
 
@@ -43,15 +46,23 @@ namespace Pokedevs.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Pokedevs.Api v1"));
+
+                app.UseSwaggerSetup();
             }
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
+
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+            );
 
             app.UseEndpoints(endpoints =>
             {

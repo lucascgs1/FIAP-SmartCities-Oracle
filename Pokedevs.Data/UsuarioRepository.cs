@@ -16,14 +16,19 @@ namespace Pokedevs.Data
             _context = context;
         }
 
-        public async Task<Usuario> GetByEmail(string email)
+        public async Task<Usuario> GetByEmailAsync(string email)
         {
             return await DbSet.AsNoTracking().FirstOrDefaultAsync(x => x.Email == email);
         }
 
-        public Usuario GetFullByEmail(string email)
+        public Usuario GetByEmail(string email)
         {
-            return DbSet.AsNoTracking().Include(e => e.CodigoSeguranca).FirstOrDefault(x => x.Email == email);
+            return _context.Usuario.Where(e => e.Email == email).FirstOrDefault();
+        }
+
+        public Usuario GetByCPF(string cpf)
+        {
+            return _context.Usuario.Where(e => e.CPF == cpf).FirstOrDefault();
         }
     }
 }

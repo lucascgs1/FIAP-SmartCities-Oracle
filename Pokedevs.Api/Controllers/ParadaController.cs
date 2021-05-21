@@ -26,7 +26,7 @@ namespace Pokedevs.Api.Controllers
         /// </summary>
         /// <returns>lista de apradas</returns>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Parada>>> GetParada([FromServices] IParadaServices paradaServices)
+        public ActionResult<IEnumerable<Parada>> GetParada([FromServices] IParadaServices paradaServices)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace Pokedevs.Api.Controllers
         /// <param name="id">codigo da parada</param>
         /// <returns>dados da parada</returns>
         [HttpGet("{id}")]
-        public async Task<ActionResult<Parada>> GetParada([FromServices] IParadaServices paradaServices, int id)
+        public ActionResult<Parada> GetParada([FromServices] IParadaServices paradaServices, int id)
         {
             try
             {
@@ -94,7 +94,7 @@ namespace Pokedevs.Api.Controllers
         /// <param name="parada"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<ActionResult<Parada>> PostParada([FromServices] IParadaServices paradaServices, Parada parada)
+        public ActionResult<Parada> PostParada([FromServices] IParadaServices paradaServices, Parada parada)
         {
             try
             {
@@ -115,7 +115,7 @@ namespace Pokedevs.Api.Controllers
         /// <param name="id">codigo da parada</param>
         /// <returns></returns>
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteParada([FromServices] IParadaServices paradaServices, int id)
+        public IActionResult DeleteParada([FromServices] IParadaServices paradaServices, int id)
         {
             try
             {

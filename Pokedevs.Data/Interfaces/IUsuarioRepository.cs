@@ -5,8 +5,10 @@ namespace Pokedevs.Data.Interfaces
 {
     public interface IUsuarioRepository : IRepository<Usuario>
     {
-        Task<Usuario> GetByEmail(string email);
+        Task<Usuario> GetByEmailAsync(string email);
 
-        Usuario GetFullByEmail(string email);
+        Usuario GetByEmail(string email);
+
+        Usuario GetByCPF(string cpf);
     }
 }

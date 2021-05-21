@@ -6,6 +6,7 @@ using Pokedevs.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 
 namespace Pokedevs.Services
 {
@@ -77,8 +78,11 @@ namespace Pokedevs.Services
                 }
                 else
                 {
-                    if (UsuarioRepository.FindFirstBy(x => x.Email == usuarioNovo.Email) != null)
+                    if (UsuarioRepository.GetByEmail(usuarioNovo.Email) != null)
                         throw new ValidationException("E-mail já cadastrado!");
+                    
+                    if (UsuarioRepository.GetByCPF(usuarioNovo.CPF) != null)
+                        throw new ValidationException("CPF já cadastrado!");
 
                     usuarioNovo.DataCadastro = DateTime.Now;
                     usuarioNovo.Senha = usuarioNovo.Senha.Md5Hash();
@@ -88,12 +92,12 @@ namespace Pokedevs.Services
 
                 UsuarioRepository.SaveChanges();
 
-                return UsuarioRepository.GetFullByEmail(usuarioNovo.Email);
+                return UsuarioRepository.GetByEmail(usuarioNovo.Email);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                throw;
+                throw ex;
             }
         }
 
@@ -106,6 +110,42 @@ namespace Pokedevs.Services
             UsuarioRepository.Remove(usuarioId);
             UsuarioRepository.SaveChanges();
         }
+
+        public Task<IEnumerable<Usuario>> GetAllUsuariosAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Usuario Autenticar(string email, string senha)
+        {
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(senha))
+                throw new ValidationException("Dados não preenchidos!");
+
+            Usuario usuario = UsuarioRepository.GetByEmail(email);
+
+            if (usuario == null)
+                throw new ValidationException("Usuário ou senha inválidos!");
+
+            if (usuario.Senha != senha.Md5Hash())
+                throw new ValidationException("Senha invalida!");
+
+            return usuario;
+
+        }
+
+        public void GerarCodigoSeguranca(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+        //public Task<IEnumerable<Usuario>> GetAllUsuariosAsync()
+        //{
+        //    UsuarioRepository.GetByEmail
+
+
+
+        //    throw new NotImplementedException();
+        //}
 
         #endregion crud
     }

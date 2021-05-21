@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace Pokedevs.Data
 {
@@ -19,6 +20,7 @@ namespace Pokedevs.Data
             DbSet = Db.Set<TEntity>();
         }
 
+        #region crud
         public virtual void Add(TEntity obj)
         {
             DbSet.Add(obj);
@@ -43,7 +45,8 @@ namespace Pokedevs.Data
         public virtual IQueryable<TEntity> GetAll()
         {
             return DbSet.AsQueryable<TEntity>();
-        }
+        }      
+  
 
         public virtual void Update(TEntity obj)
         {
@@ -72,6 +75,11 @@ namespace Pokedevs.Data
             Db.Dispose();
             GC.SuppressFinalize(this);
         }
+        #endregion
+        //public virtual Task<IEnumerable<TEntity>> GetAllAssync()
+        //{
+        //    return DbSet.AsAsyncEnumerable<TEntity>();
+        //}
 
         public void BeginTransaction()
         {

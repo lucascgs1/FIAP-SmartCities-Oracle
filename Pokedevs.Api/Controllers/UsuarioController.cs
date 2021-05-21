@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Pokedevs.Data.Context;
 using Pokedevs.Models;
+using Pokedevs.Services.Interfaces;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Pokedevs.Api.Controllers
 {
@@ -14,9 +14,14 @@ namespace Pokedevs.Api.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public UsuarioController(ApplicationDbContext context)
+        private readonly ILogger<UsuarioController> _logger;
+
+        public UsuarioController(
+            ILogger<UsuarioController> logger,
+            ApplicationDbContext context)
         {
             _context = context;
+            _logger = logger;
         }
 
         /// <summary>
@@ -24,9 +29,18 @@ namespace Pokedevs.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuario()
+        public ActionResult<IEnumerable<Usuario>> GetUsuarios([FromServices] IUsuarioServices usuarioService)
         {
-            return await _context.Usuario.ToListAsync();
+            try
+            {
+                var usuario = usuarioService.GetAllUsuarios();
+
+                return Ok(usuario);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
 
         /// <summary>
@@ -35,16 +49,23 @@ namespace Pokedevs.Api.Controllers
         /// <param name="id">codigo do usuario</param>
         /// <returns>dados do usuario</returns>
         [HttpGet("{id}")]
-        public async Task<ActionResult<Usuario>> GetUsuario(int id)
+        public ActionResult<Usuario> GetUsuario([FromServices] IUsuarioServices usuarioService, int id)
         {
-            var usuario = await _context.Usuario.FindAsync(id);
-
-            if (usuario == null)
+            try
             {
-                return NotFound();
-            }
+                var usuario = usuarioService.GetById(id);
 
-            return usuario;
+                if (usuario == null)
+                {
+                    return NotFound();
+                }
+
+                return usuario;
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
 
         /// <summary>
@@ -54,32 +75,20 @@ namespace Pokedevs.Api.Controllers
         /// <param name="usuario">dados do usuario</param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUsuario(int id, Usuario usuario)
+        public ActionResult PutUsuario([FromServices] IUsuarioServices usuarioService, int id, Usuario usuario)
         {
-            if (id != usuario.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(usuario).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UsuarioExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+                if (id != usuario.Id) return BadRequest();
 
-            return NoContent();
+                usuarioService.Save(usuario, id);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
 
         /// <summary>
@@ -88,12 +97,11 @@ namespace Pokedevs.Api.Controllers
         /// <param name="usuario">dados do usuario</param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
+        public ActionResult<Usuario> PostUsuario([FromServices] IUsuarioServices usuarioService, Usuario usuario)
         {
-            _context.Usuario.Add(usuario);
-            await _context.SaveChangesAsync();
+            usuarioService.Save(usuario);
 
-            return CreatedAtAction("GetUsuario", new { id = usuario.Id }, usuario);
+            return CreatedAtAction("GetUsuario", new { id = usuario.Id });
         }
 
         /// <summary>
@@ -102,28 +110,18 @@ namespace Pokedevs.Api.Controllers
         /// <param name="id">codigo do usuario</param>
         /// <returns></returns>
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUsuario(int id)
+        public ActionResult DeleteUsuario([FromServices] IUsuarioServices usuarioService, int id)
         {
-            var usuario = await _context.Usuario.FindAsync(id);
-            if (usuario == null)
+            try
             {
-                return NotFound();
+                usuarioService.DeleteById(id);
+
+                return Ok();
             }
-
-            _context.Usuario.Remove(usuario);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        /// <summary>
-        /// verifica se o usuario ja existe
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        private bool UsuarioExists(int id)
-        {
-            return _context.Usuario.Any(e => e.Id == id);
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Pokedevs.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Pokedevs.Services.Interfaces
 {
@@ -28,11 +29,18 @@ namespace Pokedevs.Services.Interfaces
         /// <returns></returns>
         Usuario Save(Usuario usuario, int usuarioId = 0);
 
+
+        Task<IEnumerable<Usuario>> GetAllUsuariosAsync();
+
         /// <summary>
         /// exclui um usuario pelo codigo
         /// </summary>
         /// <param name="usuarioId">codigo do usuario</param>
         void DeleteById(int usuarioId);
+
+
+        Usuario Autenticar(string email, string senha);
+        void GerarCodigoSeguranca(string email);
 
         #endregion crud
     }
