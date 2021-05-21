@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="oracle" id="271FA3E4-5A87-E4F9-500D-5F0B321D97A5" version="3.5">
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:48:30 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>271FA3E4-5A87-E4F9-500D-5F0B321D97A5</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="144D6842-96FD-0D9A-40BF-FFC6E787EAD3">
+<designStoragePath>D:\ModeloRealacional</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="68D50133-B878-EC71-6D49-CCAB8A113336">
+<designStoragePath>C:\Users\Lucas Coutinho\Desktop\modelo banco</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="CDC79A3B-5E61-3D67-E39E-7EBBA551A127">
+<designStoragePath>C:\Users\Lucas Coutinho\Desktop\oracle</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

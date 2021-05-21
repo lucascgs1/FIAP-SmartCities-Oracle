@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<DomainFile class="oracle.dbtools.crest.model.design.DomainFileWrapper" fileName="ModeloRealacional_Domains">
+<domains>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="CHAR_0_0_1" id="4FE74CF9-AB85-19EF-9D39-E36BB7B377CC">
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>1</dataTypeSize>
+<fileName>ModeloRealacional_Domains</fileName>
+<logicalDatatype>LOGDT025</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="Integer_0_0_0" id="5E0B839D-9A69-35F7-906B-2C4C55F12FF4">
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<fileName>ModeloRealacional_Domains</fileName>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="Date_0_0_0" id="7FF3B6D8-090B-1E12-BBCE-649DE861353D">
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<fileName>ModeloRealacional_Domains</fileName>
+<logicalDatatype>LOGDT007</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_80 CHAR" id="8539C2B3-0DEC-ACEA-2888-4E082A4ABFFF">
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>80 CHAR</dataTypeSize>
+<fileName>ModeloRealacional_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_5_2_0" id="8FF5D7BE-5D68-B8EC-EDC9-A26E1FF6F5F6">
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<dataTypeSize>0</dataTypeSize>
+<fileName>ModeloRealacional_Domains</fileName>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_40 CHAR" id="97737A1D-F7B8-AC4C-36FA-7BE0AE94EC1B">
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<fileName>ModeloRealacional_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_7 CHAR" id="B716614D-ECDC-1A2B-6A2C-FDAE7D39C688">
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>7 CHAR</dataTypeSize>
+<fileName>ModeloRealacional_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="FLOAT_4_0_0" id="EB9EC66F-365B-EC6B-F37D-32EADE9A5703">
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>0</dataTypeSize>
+<fileName>ModeloRealacional_Domains</fileName>
+<logicalDatatype>LOGDT021</logicalDatatype>
+</Domain>
+</domains>
+</DomainFile>

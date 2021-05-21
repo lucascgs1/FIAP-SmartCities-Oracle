@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8B69AC3B-1C57-7A1D-A62B-0D85B73A0E8B" name="ROTA_PARADA">
+<sourceDDLFile>ModeloRealacional.ddl</sourceDDLFile>
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<importedID>679AFD19-AF22-6A9A-BA2C-89E671F55EC4</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="8187B10D-174E-FCE6-62CB-B8115B26FD33">
+<sourceDDLFile>ModeloRealacional.ddl</sourceDDLFile>
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<importedID>8BD625FF-8B4E-8EB6-AF93-562D0AFD2BCC</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>5E0B839D-9A69-35F7-906B-2C4C55F12FF4</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ROTA_ID" id="AC3BB443-77C8-2F6F-C8E0-CB8FEC1ABC64">
+<sourceDDLFile>ModeloRealacional.ddl</sourceDDLFile>
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<importedID>400848E8-8835-73FE-B1B7-8CFF1135FFA0</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>5E0B839D-9A69-35F7-906B-2C4C55F12FF4</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0D426E9E-0D46-FF89-FA9B-814B1570F008" referredColumn="C4578ED4-A70A-244E-D349-773CBA9DA887"/>
+</associations>
+</Column>
+<Column name="PARADA_ID" id="C2E17DDB-4BA1-3A27-2FC7-A313E81A0F17">
+<sourceDDLFile>ModeloRealacional.ddl</sourceDDLFile>
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<importedID>99392822-758E-E1C5-E244-BE9FF0DCD6F8</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>5E0B839D-9A69-35F7-906B-2C4C55F12FF4</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B95F29C9-5DC3-6E66-A740-1AA1CD8BC6CD" referredColumn="D2BC62AC-DF06-338E-0272-BC4EBA44F087"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DB966244-2165-F71A-B921-D23B9AD3ED26" name="rota_parada_pk">
+<sourceDDLFile>ModeloRealacional.ddl</sourceDDLFile>
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<importedID>EDBBF764-A854-0443-FF05-5FC2B6D67E4D</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8187B10D-174E-FCE6-62CB-B8115B26FD33"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="582F34D3-A731-3796-9804-92575A3DD32D" name="rota_parada_rota_fk">
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AC3BB443-77C8-2F6F-C8E0-CB8FEC1ABC64"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E5DF893F-5A71-00E9-0237-E5A2CB660F5B" name="rota_parada_parada_fk">
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C2E17DDB-4BA1-3A27-2FC7-A313E81A0F17"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

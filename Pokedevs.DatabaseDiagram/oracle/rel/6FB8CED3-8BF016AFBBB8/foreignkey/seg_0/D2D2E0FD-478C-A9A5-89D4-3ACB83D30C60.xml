@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="D2D2E0FD-478C-A9A5-89D4-3ACB83D30C60" containerWithKeyObject="F720C5A9-9D6E-E4C3-EC4A-9D3E5644222B" localFKIndex="9F1F77DB-2938-B246-A67A-5C02A9DAFE23" name="passagem_rota_parada_fk">
+<sourceDDLFile>ModeloRealacional.ddl</sourceDDLFile>
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<importedID>03562AD6-5A72-9DB2-E9A0-E475B64F1343</importedID>
+<referredTableLongName>ROTA_PARADA</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>8B69AC3B-1C57-7A1D-A62B-0D85B73A0E8B</referredTableID>
+<keyObject>DB966244-2165-F71A-B921-D23B9AD3ED26</keyObject>
+<referredKeyID>DB966244-2165-F71A-B921-D23B9AD3ED26</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

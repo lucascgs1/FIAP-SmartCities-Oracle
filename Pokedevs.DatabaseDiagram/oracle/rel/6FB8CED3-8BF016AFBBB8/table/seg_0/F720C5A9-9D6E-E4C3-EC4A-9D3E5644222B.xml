@@ -1,0 +1,156 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F720C5A9-9D6E-E4C3-EC4A-9D3E5644222B" name="PASSAGEM">
+<sourceDDLFile>ModeloRealacional.ddl</sourceDDLFile>
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<importedID>A59F3505-CE11-0726-6809-6700E9B9495B</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="82B7C8AB-7021-E59A-DC32-0016E540160A">
+<sourceDDLFile>ModeloRealacional.ddl</sourceDDLFile>
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<importedID>DC039FC4-EDCD-AB27-640B-88DBBD315D3C</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>5E0B839D-9A69-35F7-906B-2C4C55F12FF4</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<autoIncrementSequenceName>passagem_id_seq</autoIncrementSequenceName>
+<autoIncrementTriggerName>passagem_id_trg</autoIncrementTriggerName>
+</Column>
+<Column name="HORARIO_PARTIDA" id="6B3521EE-FC71-A355-530F-9C222BE16723">
+<sourceDDLFile>ModeloRealacional.ddl</sourceDDLFile>
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<importedID>D7C8BFDA-B246-CFFB-D557-273E57BC9363</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>7FF3B6D8-090B-1E12-BBCE-649DE861353D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRECO" id="42A2D2B7-7639-79A1-603C-1DD9D549FD76">
+<sourceDDLFile>ModeloRealacional.ddl</sourceDDLFile>
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<importedID>D538C0B3-DC29-3018-B146-FE644380035E</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>8FF5D7BE-5D68-B8EC-EDC9-A26E1FF6F5F6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRICAO" id="45F17DC2-57D6-841C-EF52-9265AB04DFF5">
+<sourceDDLFile>ModeloRealacional.ddl</sourceDDLFile>
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<importedID>C68321FF-FC3A-63E2-6BFB-04D83E3DF6A4</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>80</dataTypeSize>
+<ownDataTypeParameters>80,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USUARIO_ID" id="068D93DE-1892-E98B-1618-4E37EA08DFA0">
+<sourceDDLFile>ModeloRealacional.ddl</sourceDDLFile>
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<importedID>B45BD60B-2698-7644-BF0E-A5C83FCBD594</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>5E0B839D-9A69-35F7-906B-2C4C55F12FF4</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="084B14A6-58B8-C4D0-94BC-915619BFB384" referredColumn="26822F76-94B4-FC8B-B21D-8A57E32BB6B8"/>
+</associations>
+</Column>
+<Column name="VIAGEM_ID" id="29F4BE34-7D18-1636-68CE-9C649F8FCF3A">
+<sourceDDLFile>ModeloRealacional.ddl</sourceDDLFile>
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<importedID>F2FE4D8F-9CBA-736C-9CDE-4F833BE8E638</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>5E0B839D-9A69-35F7-906B-2C4C55F12FF4</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="815C73ED-9047-9119-3FFB-3DD484CEE809" referredColumn="638E3079-6C5A-1884-9334-63D81AD0DE10"/>
+</associations>
+</Column>
+<Column name="ROTA_PARADA_ID" id="2619E7FC-740E-4455-D9D5-2C059424AE65">
+<sourceDDLFile>ModeloRealacional.ddl</sourceDDLFile>
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<importedID>4826E2A9-C3F3-E837-2A9C-04DDE0EB8CBE</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>5E0B839D-9A69-35F7-906B-2C4C55F12FF4</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D2D2E0FD-478C-A9A5-89D4-3ACB83D30C60" referredColumn="8187B10D-174E-FCE6-62CB-B8115B26FD33"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5A8F647D-B743-5E90-1C53-C92C9B375B71" name="passagem_pk">
+<sourceDDLFile>ModeloRealacional.ddl</sourceDDLFile>
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<importedID>36A57E64-38BC-D19D-8B7D-B1E237DD1906</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="82B7C8AB-7021-E59A-DC32-0016E540160A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9F1F77DB-2938-B246-A67A-5C02A9DAFE23" name="passagem_rota_parada_fk">
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2619E7FC-740E-4455-D9D5-2C059424AE65"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5764E255-C92C-73DC-8519-97584035B0EB" name="passagem_usuario_fk">
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="068D93DE-1892-E98B-1618-4E37EA08DFA0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="55DE176B-3B34-9E2C-FD8D-8F98993D019B" name="passagem_viagem_fk">
+<createdBy>Lucas Coutinho</createdBy>
+<createdTime>2021-05-19 02:49:21 UTC</createdTime>
+<ownerDesignName>oracle</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="29F4BE34-7D18-1636-68CE-9C649F8FCF3A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
